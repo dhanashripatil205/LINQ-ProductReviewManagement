@@ -39,13 +39,23 @@ namespace ProductReviewManagement
             }
         }
         
-         public static void retriveOnlyProductIDAndReview(List<ProductReview> element)
+         public static void retriveOnlyProductIDAndReview(List<ProductReview> productReview)
         {
-            var a = from productreview in element select productreview;
+            var Records = from productreview in productReview select productreview;
 
-            foreach (var i in a)
+            foreach (var element in Records)
             {
-                Console.WriteLine("ProductID :{0},  Review :{1}", i.ProductID, i.Review);
+                Console.WriteLine("ProductID :{0},  Review :{1}", element.ProductID, element.Review);
+            }
+        }
+        
+        public static void skipTopFiveRecordAndDisplayOther(List<ProductReview> productReview)
+        {
+            var Records = (from productreview in productReview select productreview).Skip(5);
+
+            foreach (var element in Records)
+            {
+                Console.WriteLine("ProductID :{0},  Review :{1}", element.ProductID, element.Review);
             }
         }
     }
