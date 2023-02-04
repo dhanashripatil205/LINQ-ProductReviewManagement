@@ -6,7 +6,7 @@ namespace ProductReviewManagement
         public static void TopThreeByRating(List<ProductReview> productReview)
         {
 
-            var Record = (from productreview in productReview orderby productreview.Rating descending select productreview).Take(3);
+            var Record = (from productreview in productReview orderby productreview.Rating descending select productreview);
 
             foreach (var element in Record)
             {
